@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  homelab-app:
+    build: .
+    container_name: preact-pocketbase-app
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    volumes:
+      - pb_data:/pb/pb_data
+
+volumes:
+  pb_data:
